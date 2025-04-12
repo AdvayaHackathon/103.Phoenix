@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Rural Education Network</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .hero {
+      position: relative;
+      color: white; /* Improved text visibility */
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+      z-index: 0; /* Behind the content */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1; /* Above the overlay */
+    }
+    body.dark-mode .hero {
+      background-color: #333; /* Dark mode background */
+    }
+    body.dark-mode main {
+      background-color: #444; /* Dark mode main content background */
+      color: white; /* Dark mode text color */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>About Rural Education Network</h1>
+    <p>Empowering Education Everywhere</p>
+  </header>
+
+  <nav>
+    <a href="index.html" tabindex="0">Home</a>
+    <a href="about.html" tabindex="0">About</a>
+    <a href="teachers.html" tabindex="0">Teachers</a>
+    <a href="admissions.html" tabindex="0">Admissions</a>
+    <a href="contact.html" tabindex="0">Contact</a>
+    <a href="dashboard.html" tabindex="0">Dashboard</a>
+    <a href="admin.html" tabindex="0">Admin Login</a>
+    <a href="admissions-table.html" tabindex="0">Admissions Table</a>
+    <button id="themeToggle" aria-label="Toggle Dark/Light Theme" style="margin-left: 1rem;">🌙 Toggle Theme</button>
+  </nav>
+
+  <section class="hero" style="background-image: url('hero-background.jpg');">
+    <div class="hero-content">
+      <h2>Our Mission: Bridging the Education Gap</h2>
+      <p>Connecting talented educators with underserved rural schools.</p>
+    </div>
+  </section>
+
+  <main class="fade-in" style="max-width: 1000px; margin: 3rem auto;">
+    <section>
+      <h3>📘 Our Mission</h3>
+      <p>To bridge the gap between talented educators and underserved rural schools by creating a platform that supports, connects, and uplifts both teachers and students across India.</p>
+    </section>
+
+    <section>
+      <h3>🌟 What We Do</h3>
+      <p>We provide resources, training, and support for educators in rural areas, ensuring they have the tools they need to succeed.</p>
+    </section>
+
+    <section>
+      <h3>💡 Impact Stories</h3>
+      <p>Hear from educators and students whose lives have been transformed through our initiatives and programs.</p>
+    </section>
+
+    <section>
+      <h3>👥 Get Involved</h3>
+      <p>Join us in our mission to empower rural education. Learn how you can contribute as a volunteer, mentor, or donor.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Rural Education Network. All rights reserved.
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeElems = document.querySelectorAll('.fade-in');
+      fadeElems.forEach(el => {
+        el.style.opacity = '0';
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(el);
+      });
+
+      const toggleBtn = document.getElementById('themeToggle');
+      toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+</body>
+</html>

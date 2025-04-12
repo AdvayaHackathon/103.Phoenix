@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login – Rural Education Network</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .hero {
+      position: relative;
+      background-image: url('path/to/your/background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    .hero h1, .hero p {
+      position: relative;
+      z-index: 1;
+    }
+    .login-container {
+      max-width: 400px;
+      margin: 4rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    #loginForm input {
+      min-width: 300px;
+      padding: 10px;
+      margin-bottom: 1rem;
+    }
+    button[type="submit"] {
+      transition: background-color 0.3s;
+    }
+    button[type="submit"]:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Welcome to the Rural Education Network</h1>
+    <p>Empowering communities through education</p>
+  </div>
+
+  <header>
+    <h1>Admin Login</h1>
+    <p>Restricted access for admin use only</p>
+  </header>
+
+  <nav>
+    <a href="index.html" tabindex="0">Home</a>
+    <a href="about.html" tabindex="0">About</a>
+    <a href="teachers.html" tabindex="0">Teachers</a>
+    <a href="admissions.html" tabindex="0">Admissions</a>
+    <a href="contact.html" tabindex="0">Contact</a>
+    <a href="dashboard.html" tabindex="0">Dashboard</a>
+    <a href="admin.html" tabindex="0">Admin Login</a>
+    <a href="admissions-table.html" tabindex="0">Admissions Table</a>
+    <button id="themeToggle" aria-label="Toggle Dark/Light Theme" style="margin-left: 1rem;">🌙 Toggle Theme</button>
+  </nav>
+
+  <main class="fade-in" style="max-width: 400px; margin: 3rem auto; text-align: center;">
+    <h2>Admin Login</h2>
+    <p>This login portal is for authorized administrators of the Rural Education Network.</p>
+    <p>Please enter your credentials to access the dashboard and manage the platform.</p>
+  
+    <form id="loginForm" style="margin-top: 2rem;">
+      <label for="email">Email Address</label><br>
+      <input type="email" id="username" placeholder="admin@example.com" required><br><br>
+  
+      <label for="password">Password</label><br>
+      <input type="password" id="password" placeholder="********" required><br><br>
+  
+      <button type="submit">Login</button>
+    </form>
+    <p id="loginMessage" style="color: red; margin-top: 1rem;"></p>
+  </main>
+  <footer>
+    &copy; 2025 Rural Education Network. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Demo credentials
+      if (user === "admin" && pass === "password123") {
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("loginMessage").textContent = "Invalid credentials. Try again.";
+      }
+    });
+  </script>
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>

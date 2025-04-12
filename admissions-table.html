@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admissions Table – Rural Education Network</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    th, td {
+      padding: 1rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f4f8;
+      color: #333;
+    }
+
+    .table-wrapper {
+      max-width: 1000px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .top-controls {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('path/to/your/image.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero h1, .hero p {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Welcome to Rural Education Network</h1>
+    <p>Your gateway to quality education.</p>
+  </div>
+  <header>
+    <h1>Student Admissions</h1>
+    <p>Submitted applications overview</p>
+  </header>
+
+  <nav>
+    <a href="index.html" tabindex="0">Home</a>
+    <a href="about.html" tabindex="0">About</a>
+    <a href="teachers.html" tabindex="0">Teachers</a>
+    <a href="admissions.html" tabindex="0">Admissions</a>
+    <a href="contact.html" tabindex="0">Contact</a>
+    <a href="dashboard.html" tabindex="0">Dashboard</a>
+    <a href="admin.html" tabindex="0">Admin Login</a>
+    <a href="admissions-table.html" tabindex="0">Admissions Table</a>
+    <button id="themeToggle" aria-label="Toggle Dark/Light Theme" style="margin-left: 1rem;">🌙 Toggle Theme</button>
+  </nav>
+  <main class="fade-in" style="max-width: 1000px; margin: 3rem auto;">
+    <h2>Admissions Overview</h2>
+    <p>Welcome to the admissions table, where you can see the list of students who have recently applied to join our partner schools. Below you’ll find key details about each applicant.</p>
+    
+    <p>This table includes the student’s name, age, class, location, and guardian contact information. You can use this to track and manage the incoming requests.</p>
+    
+    <table style="width: 100%; border-collapse: collapse; margin-top: 2rem;">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Class</th>
+          <th>Region</th>
+          <th>Guardian Contact</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Priya Kumari</td>
+          <td>10</td>
+          <td>5th</td>
+          <td>Jharkhand</td>
+          <td>+91 98765 43210</td>
+          <td>Pending</td>
+        </tr>
+        <tr>
+          <td>Rahul Sen</td>
+          <td>12</td>
+          <td>6th</td>
+          <td>Odisha</td>
+          <td>+91 91234 56789</td>
+          <td>Approved</td>
+        </tr>
+        <tr>
+          <td>Ananya Patil</td>
+          <td>11</td>
+          <td>5th</td>
+          <td>Uttarakhand</td>
+          <td>+91 99887 66554</td>
+          <td>Pending</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <footer>
+    &copy; 2025 Rural Education Network. All rights reserved.
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeElems = document.querySelectorAll('.fade-in');
+      fadeElems.forEach(el => {
+        el.style.opacity = '0';
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(el);
+      });
+
+      const toggleBtn = document.getElementById('themeToggle');
+      toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+  </script>
+</body>
+</html>
